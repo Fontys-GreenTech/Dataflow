@@ -1,0 +1,7 @@
+﻿services:
+  dataflow.api:
+    image: dataflow.api
+    build:
+      context: .
+      dockerfile: Dataflow.Api/Dockerfile
+
