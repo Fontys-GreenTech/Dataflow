@@ -1,15 +1,21 @@
-﻿namespace Dataflow.IntegrationTests;
+﻿using System;
+using System.Threading.Tasks;
 
-public class Tests
+using Shouldly;
+
+namespace Dataflow.IntegrationTests;
+
+internal sealed class WeatherForecastIntegrationTests : IntegrationTestBase
 {
-    [SetUp]
-    public void Setup()
-    {
-    }
-
     [Test]
-    public void Test1()
+    public async Task GetWeatherForecastReturnsSuccessAndForecasts()
     {
-        Assert.Pass();
+        // Act
+        var response = await Client.GetAsync(new Uri("/WeatherForecast", UriKind.Relative));
+
+        // Assert
+        response.EnsureSuccessStatusCode();
+        var content = await response.Content.ReadAsStringAsync();
+        content.ShouldNotBeNullOrEmpty();
     }
 }
