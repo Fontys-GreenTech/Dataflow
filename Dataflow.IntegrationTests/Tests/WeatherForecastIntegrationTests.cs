@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-
 using Shouldly;
 
-namespace Dataflow.IntegrationTests;
+namespace Dataflow.IntegrationTests.Tests;
 
 internal sealed class WeatherForecastIntegrationTests : IntegrationTestBase
 {
