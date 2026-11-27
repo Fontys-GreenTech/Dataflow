@@ -1,17 +1,18 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Dataflow.Caching.ApplicationExtensions;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddDataflowCaching(this IServiceCollection services)
+    public static IServiceCollection AddDataflowCaching(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDependencies();
-        return services;
-    }
+        services.AddStackExchangeRedisCache(options =>
+        {
+            options.Configuration = configuration.GetConnectionString("Redis");
+            options.InstanceName = "dataflow:";
+        });
 
-    private static IServiceCollection AddDependencies(this IServiceCollection services)
-    {
         return services;
     }
 }

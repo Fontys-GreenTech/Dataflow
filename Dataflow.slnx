@@ -3,6 +3,7 @@
     <File Path=".editorconfig" />
     <File Path=".gitignore" />
     <File Path="compose.yaml" />
+    <File Path="dev/docker-compose.yml" />
     <File Path="Directory.Build.props" />
     <File Path="README.md" />
   </Folder>

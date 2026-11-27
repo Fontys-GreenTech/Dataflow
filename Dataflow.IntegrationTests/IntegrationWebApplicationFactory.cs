@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 
-using Dataflow.Api.ApplicationExtensions;
-
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.Configuration;
@@ -19,15 +17,10 @@ internal sealed class IntegrationWebApplicationFactory<TProgram>
         {
             var testConfig = new Dictionary<string, string?>
             {
-                // Add test-specific configuration overrides here or use Testcontainers connection strings
+                ["ConnectionString:Redis"] = GlobalSetup.RedisConnectionString
             };
-            config.AddInMemoryCollection(testConfig);
-        });
 
-        builder.ConfigureServices(services =>
-        {
-            // Add required services (like the ones in Dataflow.Api/ApplicationExtensions/ServiceCollectionExtensions.cs)
-            services.AddDataflowApi();
+            config.AddInMemoryCollection(testConfig);
         });
     }
 }
