@@ -15,7 +15,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Dataflow.Caching\Dataflow.Caching.csproj" />
       <ProjectReference Include="..\Dataflow.Core\Dataflow.Core.csproj" />
     </ItemGroup>
 

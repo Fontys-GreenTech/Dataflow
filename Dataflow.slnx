@@ -8,8 +8,8 @@
     <File Path="README.md" />
   </Folder>
   <Project Path="Dataflow.Api/Dataflow.Api.csproj" />
-  <Project Path="Dataflow.Caching/Dataflow.Caching.csproj" />
   <Project Path="Dataflow.Core.Tests/Dataflow.Core.Tests.csproj" />
   <Project Path="Dataflow.Core/Dataflow.Core.csproj" />
   <Project Path="Dataflow.IntegrationTests/Dataflow.IntegrationTests.csproj" />
+  <Project Path="Dataflow.ResultStore/Dataflow.ResultStore.csproj" />
 </Solution>
