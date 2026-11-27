@@ -17,7 +17,8 @@ internal sealed class IntegrationWebApplicationFactory<TProgram>
         {
             var testConfig = new Dictionary<string, string?>
             {
-                ["ConnectionString:Redis"] = GlobalSetup.RedisConnectionString
+                ["ConnectionString:Redis"] = GlobalSetup.RedisConnectionString,
+                ["ResultStore:CacheDirectory"] = GlobalSetup.CacheDirectory
             };
 
             config.AddInMemoryCollection(testConfig);

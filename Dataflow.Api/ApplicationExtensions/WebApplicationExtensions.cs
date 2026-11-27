@@ -18,6 +18,7 @@ internal static class WebApplicationExtensions
         app.UseAuthorization();
 
         app.MapControllers();
+        app.UseRouting();
 
         return app;
     }

@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using System.Threading.Tasks;
 using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Containers;
@@ -13,6 +15,9 @@ internal sealed class GlobalSetup
 
     public static string? RedisConnectionString => $"localhost:{s_redis!.GetMappedPublicPort(6379)}";
 
+    private static string _cacheDirectory = null!;
+    public static string CacheDirectory => _cacheDirectory;
+
     [OneTimeSetUp]
     public async Task RunBeforeAnyTests()
     {
@@ -23,6 +28,8 @@ internal sealed class GlobalSetup
             .Build();
 
         await s_redis.StartAsync();
+
+        _cacheDirectory = Path.Join(Path.GetTempPath(), $"dataflow-{Guid.NewGuid():N}");
 
         await Task.CompletedTask;
     }

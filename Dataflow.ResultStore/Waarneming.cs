@@ -6,15 +6,20 @@ namespace Dataflow.ResultStore;
 [Description("Een soortwaarneming uit NDFF/GBIF.")]
 public sealed record Waarneming
 {
+    // ── Internal Fields ─────────────────────────────────────────
+
+    public required Guid Id { get; init; }
+    public required DateTimeOffset CreatedAt { get; init; }
+
     // ── Herkomst ────────────────────────────────────────────────
 
     [JsonPropertyName("Bron")]
     [Description("Databron van de waarneming: NDFF of GBIF. Bijv. 'GBIF'.")]
     public required string Bron { get; init; }
 
-    [JsonPropertyName("ID")]
+    [JsonPropertyName("Bron ID")]
     [Description("ID van de waarneming in de bron. Bijv. 6150302819.")]
-    public required long Id { get; init; }
+    public required long BronId { get; init; }
 
     [JsonPropertyName("Bronhouder")]
     [Description("Herkomst van de data binnen de originele bron. Bijv. 'Stichting Observation International'.")]
